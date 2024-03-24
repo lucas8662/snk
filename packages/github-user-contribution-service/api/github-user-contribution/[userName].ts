@@ -1,14 +1,12 @@
 import { getGithubUserContribution } from "@snk/github-user-contribution";
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import nodeFetch from "node-fetch";
-
-(global as any).fetch = nodeFetch;
 
 export default async (req: VercelRequest, res: VercelResponse) => {
   const { userName } = req.query;
 
   try {
     res.setHeader("Access-Control-Allow-Origin", "https://platane.github.io");
+    res.setHeader("Cache-Control", "max-age=21600, s-maxage=21600");
     res.statusCode = 200;
     res.json(
       await getGithubUserContribution(userName as string, {
