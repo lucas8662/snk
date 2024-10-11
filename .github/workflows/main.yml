@@ -18,7 +18,7 @@ jobs:
       - run: npm run lint
       - run: npm run test --ci
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN_GH_PAGES }}
 
   test-action:
     runs-on: ubuntu-latest
@@ -51,7 +51,7 @@ jobs:
           target_branch: output
           build_dir: dist
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN_GH_PAGES }}
 
   test-action-svg-only:
     runs-on: ubuntu-latest
@@ -89,7 +89,7 @@ jobs:
           target_branch: output-svg-only
           build_dir: dist
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN_GH_PAGES }}
 
   deploy-ghpages:
     runs-on: ubuntu-latest
